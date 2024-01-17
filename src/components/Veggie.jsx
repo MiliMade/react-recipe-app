@@ -3,6 +3,7 @@ import '@splidejs/react-splide/css';
 import { Wrapper, Gradient, Card } from "./StyledComponents";
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 
 const Veggie = () => {
 
@@ -50,9 +51,11 @@ const Veggie = () => {
               return(
                 <SplideSlide key={recipe.id} >
                   <Card >
-                    <p >{recipe.title}</p>
-                    <img src={recipe.image} alt={recipe.title} />
-                    <Gradient />
+                    <Link to={`/recipes/${recipe.id}`}>
+                      <p >{recipe.title}</p>
+                      <img src={recipe.image} alt={recipe.title} />
+                      <Gradient />
+                    </Link>
                   </Card>
                 </SplideSlide>
               )
